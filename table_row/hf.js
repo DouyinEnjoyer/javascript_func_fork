@@ -56,6 +56,14 @@ for(let a of arr) {
     tr2_td1.innerText = a.nationality;
     tr2.appendChild(tr2_td1);
 
+    tr2_td1.addEventListener("click", function(e){
+        /**
+         * @type {HTMLTableCellElement}
+         */
+        const valt = e.target
+        valt.classList.add("marked");
+    });
+
     const tr2_td2 = document.createElement('td');
     tr2_td2.innerText = a.author1;
     tr2.appendChild(tr2_td2);
