@@ -1,6 +1,16 @@
 /**
  * @type {{nationality:string, author1:string, author2?:string, literarypiece1:string, literarypiece2?:string}}
  */
+const obj = {}
+
+
+
+
+
+/**
+ * @type {{nationality:string, author1:string, author2?:string, literarypiece1:string, literarypiece2?:string}}
+ * 
+ */
 
 const arr = [
     {
@@ -55,11 +65,11 @@ for(let a of arr) {
     const tr2_td1 = document.createElement('td');
     tr2_td1.innerText = a.nationality;
     tr2.appendChild(tr2_td1);
-
-    tr2_td1.addEventListener("click", function(e){
         /**
          * @type {HTMLTableCellElement}
          */
+    tr2_td1.addEventListener("click", function(e){
+        
         const valt = e.target
         valt.classList.add("marked");
     });
@@ -86,4 +96,112 @@ for(let a of arr) {
 
         tr2_td1.rowSpan = 2;
     }
+}
+/**
+* @type {HTMLFormElement}
+*/
+const ide = document.getElementById("htmlform");
+ide.addEventListener("submit", function(e){
+    
+
+    e.preventDefault();
+    
+    const nemtudom = e.target
+    /**
+     * @type {HTMLInputElement}
+     */
+    const nem = nemtudom.querySelector("#nemzetiseg")
+    
+    const szerzo1 = nemtudom.querySelector("#szerzo1")
+    
+    const szerzo2 = nemtudom.querySelector("#szerzo2")
+    
+    const mu1 = nemtudom.querySelector("#mu1")
+    
+    const mu2 = nemtudom.querySelector("#mu2")
+
+    /**
+     * @type {string}
+     */
+    const nemuj = nem.value
+    /**
+     * @type {string}
+     */
+    const szerzo1uj = szerzo1.value
+    /**
+     * @type {string}
+     */
+    const szerzo2uj = szerzo2.value
+    /**
+     * @type {string}
+     */
+    const mu1uj = mu1.value
+    /**
+     * @type {string}
+     */
+    const mu2uj = mu2.value
+
+    obj.nem = nemuj
+    obj.szerzo1 = szerzo1uj
+    obj.szerzo2 = szerzo2uj
+    obj.mu1 = mu1uj
+    obj.mu2 = mu2uj
+
+        
+    const tbody = document.querySelector('#tbodi')
+    const tr = document.createElement('tr')
+    tbody.appendChild(tr)
+ 
+    const td_nem = document.createElement('td')
+    td_nem.innerText =obj.nem
+    td_nem.rowSpan=2
+    tr.appendChild(td_nem)
+ 
+    const td_szerzo1 = document.createElement('td')
+    td_szerzo1.innerText =obj.szerzo1
+    tr.appendChild(td_szerzo1)
+ 
+    const td_mu1 = document.createElement('td')
+    td_mu1.innerText =obj.mu1
+    tr.appendChild(td_mu1)
+ 
+    const tr2 = document.createElement('tr')
+    tbody.appendChild(tr2)
+ 
+    const td_szerzo2 = document.createElement('td')
+    td_szerzo2.innerText = obj.szerzo2
+    tr2.appendChild(td_szerzo2)
+ 
+    const td_mu2 = document.createElement('td')
+    td_mu2.innerText= obj.mu2
+    tr2.appendChild(td_mu2)
+
+    
+        
+});
+/**
+ * 
+ * @param {string} form 
+ * @param {number} id 
+ * @param {string} LabelContent 
+ */
+function createFormElement(form, id, LabelContent)
+{
+    const forma = document.createElement("form")
+    tbody.appendChild(form)
+
+    const label = document.createElement("label")
+    label.HTMLFor = id
+    label.innerText = LabelContent
+    /**
+     * @type {id}
+     */
+    const input = document.createElement("input")
+    input.type = "text"
+    input.id = id
+    input.name = id
+    
+    forma.appendChild(label)
+    forma.appendChild(input)
+    
 }
